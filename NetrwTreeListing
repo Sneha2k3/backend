@@ -1,0 +1,31 @@
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v181)
+"   /home/vector/Documents/freelance/sn/Rudraksha/src/utils
+"   Sorted by      name
+"   Sort sequence: [\/]$,*,\(\.bak\|\~\|\.o\|\.info\|\.swp\|\.aux\|\.bbl\|\.blg\|\.brf\|\.cb\|\.dvi\|\.idx\|\.ilg\|\.ind\|\.inx\|\.jpg\|\.log\|\.out\|\.png\|\.toc\)[*@]\=$
+"   Hiding:        \(^\|\s\s\)\zs\.\S\+,node_modules
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:special
+" ==============================================================================
+../
+Rudraksha/
+| public/
+| src/
+| | app/
+| | components/
+| | services/
+| | shared/
+| | store/
+| | types/
+| | | types.ts
+| | utils/
+| | | font.ts
+| | | generateStars.tsx
+| | | imageUtils.tsx
+| README.md
+| next-env.d.ts
+| next.config.ts
+| package-lock.json
+| package.json
+| postcss.config.mjs
+| tailwind.config.ts
+| tsconfig.json
