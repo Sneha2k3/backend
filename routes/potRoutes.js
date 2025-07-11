@@ -1,4 +1,6 @@
 const express = require("express");
+const upload = require('../service/upload'); 
+
 const router = express.Router();
 const {
     createPot,
@@ -8,7 +10,7 @@ const {
     deletePot
 } = require("../controllers/potController");
 
-router.post("/", createPot);
+router.post("/",upload.single("file"), createPot);
 router.get("/", getAllPots);
 router.get("/:id", getPotById);
 router.put("/:id", updatePot);

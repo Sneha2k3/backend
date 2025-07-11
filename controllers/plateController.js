@@ -38,7 +38,11 @@ exports.getPlateById = async (req, res) => {
 
 // Create a plate
 exports.createPlate = async (req, res) => {
+    if(!req.file) {
+        return res.status(400).json({ error: "Image file is required" });
+    }
     try {
+        req.body.img = `uploads/${req.file.filename}`;
         const newPlate = new Plate(req.body);
         await newPlate.save();
         res.status(201).json(newPlate);

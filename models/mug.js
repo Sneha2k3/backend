@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
 
 const mugSchema = new mongoose.Schema({
-    productId: {
-        type: String,
-        required: true,
-        unique: true
-    },
     title: String,
     price: Number,
-    size: String,
+    size: {
+        type: String,
+        enum: ['small', 'medium', 'big'],
+        required: true
+    },
     img: [String],
     description: String,
     stock: Number
 }, { timestamps: true });
 
-module.exports = mongoose.model("Mug", mugSchema);
+module.exports = mongoose.model("Mug3", mugSchema);

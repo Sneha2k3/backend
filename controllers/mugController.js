@@ -33,7 +33,11 @@ exports.getMugById = async (req, res) => {
 };
 
 exports.createMug = async (req, res) => {
+    if(!req.file) {
+        return res.status(400).json({ error: "Image file is required" });
+    }
     try {
+        req.body.img = `uploads/${req.file.filename}`;
         const newMug = new Mug(req.body);
         await newMug.save();
         res.status(201).json(newMug);

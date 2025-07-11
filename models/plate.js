@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
 
 const plateSchema = new mongoose.Schema({
-    productId: {
-        type: String,
-        required: true,
-        unique: true
-    },
     title: String,
     price: Number,
-    size: String,
+    size: {
+        type: String,
+        enum: ['small', 'medium', 'big'],
+        required: true
+    },
     img: [String],
     description: String,
     stock: Number,
 });
 
-module.exports = mongoose.model("Plate", plateSchema);
+module.exports = mongoose.model("Plate3", plateSchema);

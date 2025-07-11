@@ -2,7 +2,11 @@ const Product = require("../models/product");
 
 // Create a new pot product
 exports.createPot = async (req, res) => {
+    if(!req.file) {
+        return res.status(400).json({ error: "Image file is required" });
+    }
     try {
+        req.body.img = `uploads/${req.file.filename}`;
         const newPot = new Product({ ...req.body, category: "Pot" });
         const savedPot = await newPot.save();
         res.status(201).json(savedPot);
