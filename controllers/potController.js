@@ -61,6 +61,12 @@ exports.getPotById = async (req, res) => {
 // Update pot by ID
 exports.updatePot = async (req, res) => {
     try {
+        if(req.file) {
+            req.body = {
+                ...req.body,
+                img: `uploads/${req.file.filename}`
+            }
+        }
         const updatedPot = await Product.findByIdAndUpdate(
             req.params.id,
             req.body,

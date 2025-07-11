@@ -48,6 +48,12 @@ exports.createMug = async (req, res) => {
 
 exports.updateMug = async (req, res) => {
     try {
+        if(req.file) {
+            req.body = {
+                ...req.body,
+                img: `uploads/${req.file.filename}`
+            }
+        }
         const updated = await Mug.findOneAndUpdate(
             { productId: req.params.id },
             req.body,

@@ -54,6 +54,12 @@ exports.createPlate = async (req, res) => {
 // Update a plate
 exports.updatePlate = async (req, res) => {
     try {
+        if(req.file) {
+            req.body = {
+                ...req.body,
+                img: `uploads/${req.file.filename}`
+            }
+        }
         const updated = await Plate.findOneAndUpdate(
             { productId: req.params.id },
             req.body,
